@@ -703,35 +703,79 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
+            
+          <form id="contactForm">
+            <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
+              <div class="col-md-6">
+                <label for="firstName">First Name</label>
+                
+                <input type="text" id="firstName" class="form-control"
+                      pattern="[A-Za-z]+"
+                      title="Please use letters only"
+                      required>
 
               </div>
-            </form>
+
+              <div class="col-md-6">
+                <label for="lastName">Last Name</label>
+                
+                <input type="text" id="lastName" class="form-control"
+                      pattern="[A-Za-z]+"
+                      title="Please use letters only"
+                      required>
+
+              </div>
+
+              <div class="col-md-6">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required>
+              </div>
+
+              <div class="col-md-6">
+                <label for="phone">Phone Number</label>
+                
+                <input type="tel" id="phone" class="form-control"
+                      placeholder="+370 6xx xxxxx"
+                      maxlength="14"
+                      pattern="\+370 6[0-9]{2} [0-9]{5}"
+                      title="Enter a Lithuanian mobile number, e.g. +370 612 34567"
+                      required>
+
+
+              </div>
+
+              <div class="col-md-12">
+                <label for="address">Address</label>
+                <input type="text" id="address" class="form-control" required>
+              </div>
+
+              <div class="col-md-12">
+                <label for="rating1">Rate my website design (1-10)</label>
+                <input type="number" id="rating1" min="1" max="10" class="form-control" required>
+              </div>
+
+              <div class="col-md-12">
+                <label for="rating2">Rate my website content (1-10)</label>
+                <input type="number" id="rating2" min="1" max="10" class="form-control" required>
+              </div>
+
+              <div class="col-md-12">
+                <label for="rating3">Rate my website usability (1-10)</label>
+                <input type="number" id="rating3" min="1" max="10" class="form-control" required>
+              </div>
+
+              
+              <div class="col-md-12 text-center">
+                <button type="submit" id="submitBtn" disabled>Submit</button>
+                <button type="button" id="clearBtn">Clear</button>
+              </div>      
+
+            </div>
+          </form>
+
+        <div id="formResults" class="mt-4"></div>
+
           </div><!-- End Contact Form -->
 
         </div>
@@ -788,6 +832,8 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
+
 
 </body>
 
