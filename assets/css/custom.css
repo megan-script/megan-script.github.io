@@ -1,0 +1,344 @@
+
+/* Website font */
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 16px;
+    color: #40364d;
+    line-height: 1.7;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+    color: #6941a5;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 19px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #554865;
+    margin-bottom: 18px;
+}
+
+
+/* LAB 9 - TASK 3: BUTTONS AND LINKS */
+
+/* General buttons */
+button,
+input[type="submit"],
+.btn {
+    background-color: #6941a5;
+    color: white;
+    border: 2px solid #6941a5;
+    border-radius: 12px;
+    padding: 10px 22px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover,
+input[type="submit"]:hover,
+.btn:hover {
+    background-color: #9270c4;
+    border-color: #9270c4;
+    color: white;
+    box-shadow: 0 4px 12px rgba(105, 65, 165, 0.3);
+}
+
+/* Button active effect */
+button:active,
+input[type="submit"]:active,
+.btn:active {
+    background-color: #4e2c80;
+    border-color: #4e2c80;
+    transform: scale(0.97);
+}
+
+/* General links */
+a {
+    color: #8053ba;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Link hover effect */
+a:hover {
+    color: #4e2c80;
+    text-decoration: underline;
+}
+
+/* LAB 9 - TASK 3: TEMPLATE BUTTON OVERRIDES */
+
+/* Change template accent colour */
+:root {
+    --accent-color: #6941a5;
+}
+
+/* Contact form button */
+.contact .php-email-form button[type="submit"] {
+    background-color: #6941a5;
+    color: white;
+    border: 2px solid #6941a5;
+    border-radius: 12px;
+    padding: 12px 28px;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.contact .php-email-form button[type="submit"]:hover {
+    background-color: #9270c4;
+    border-color: #9270c4;
+    box-shadow: 0 4px 12px rgba(105, 65, 165, 0.3);
+}
+
+/* Active */
+.contact .php-email-form button[type="submit"]:active {
+    background-color: #4e2c80;
+    transform: scale(0.97);
+}
+
+/* Navigation toggle */
+.header .header-toggle {
+    background-color: #6941a5;
+}
+
+/* Footer social icons */
+.footer .social-links a {
+    background-color: #6941a5;
+    color: white;
+    border-color: #6941a5;
+}
+
+/* Back to top button */
+.scroll-top {
+    background-color: #6941a5;
+}
+
+
+/* LAB 9 - TASK 4: SPACING AND CONTENT BLOCKS */
+
+/* ABOUT SECTION */
+.about {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.about .content {
+    background-color: #f5f0fc;
+    padding: 30px;
+    border: 1px solid #d8c5ee;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(105, 65, 165, 0.12);
+}
+
+.about img {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(105, 65, 165, 0.15);
+}
+
+/* RESUME SECTION */
+.resume {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.resume .resume-item {
+    background-color: #f5f0fc;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #d8c5ee;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(105, 65, 165, 0.1);
+}
+
+/* PORTFOLIO SECTION */
+.portfolio {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.portfolio .portfolio-item {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #d8c5ee;
+    border-radius: 15px;
+    background-color: #f5f0fc;
+    box-shadow: 0 5px 15px rgba(105, 65, 165, 0.12);
+    overflow: hidden;
+}
+
+.portfolio .portfolio-item img {
+    border-radius: 10px;
+}
+
+
+/* LAB 9 - TASK 5: ADDITIONAL COMPONENTS */
+
+/* COMPONENT 1: NAVIGATION MENU */
+
+.navmenu a {
+    background-color: #f0e7fa;
+    border: 1px solid #d8c5ee;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    padding: 12px 18px;
+    box-shadow: 0 3px 8px rgba(105, 65, 165, 0.12);
+}
+
+.navmenu a:hover,
+.navmenu .active {
+    background-color: #6941a5;
+    color: white;
+    border-color: #6941a5;
+    box-shadow: 0 5px 12px rgba(105, 65, 165, 0.25);
+}
+
+/* COMPONENT 2: SKILLS PROGRESS BARS */
+
+.skills .progress-bar-wrap {
+    background-color: #eee5f8;
+    height: 14px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(105, 65, 165, 0.1);
+}
+
+.skills .progress-bar {
+    background-color: #8053ba;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(105, 65, 165, 0.2);
+}
+
+
+/* LAB 9 - COMPLEMENTARY TASK 1: LISTS */
+
+/* Unordered list */
+.services ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.services ul > li {
+    position: relative;
+    padding: 8px 12px 8px 25px;
+    margin-bottom: 8px;
+}
+
+/* Custom bullet using a pseudo-element */
+.services ul > li::before {
+    content: "✦";
+    color: #8053ba;
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+}
+
+/* Ordered list */
+.services ol {
+    list-style: none;
+    counter-reset: step;
+    padding-left: 20px;
+}
+
+.services ol > li {
+    counter-increment: step;
+    position: relative;
+    padding: 8px 12px 8px 35px;
+    margin-bottom: 8px;
+}
+
+/* Custom numbering */
+.services ol > li::before {
+    content: counter(step) ".";
+    position: absolute;
+    left: 0;
+    color: #6941a5;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Nested list */
+.services ul ul {
+    background-color: #f5f0fc;
+    border-left: 3px solid #8053ba;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-top: 10px;
+}
+
+/* Different bullet for nested items */
+.services ul ul > li::before {
+    content: "◆";
+    color: #b092d6;
+    font-size: 12px;
+}
+
+
+/* LAB 9 - COMPLEMENTARY TASK 2: TABLE */
+
+/* Main table */
+.services table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #d8c5ee;
+}
+
+/* All table cells */
+.services table th,
+.services table td {
+    padding: 16px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #d8c5ee;
+}
+
+/* Header row */
+.services table thead th {
+    background-color: #6941a5;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* Alternating row colours */
+.services table tbody tr:nth-child(even) td {
+    background-color: #f5f0fc;
+}
+
+/* Row hover effect */
+.services table tbody tr:hover td {
+    background-color: #e4d5f5;
+    transition: background-color 0.3s ease;
+}
