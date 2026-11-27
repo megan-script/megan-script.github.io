@@ -629,3 +629,23 @@ a:hover {
     }
 }
 
+/* LAB 12 - SKILL STATUS DROPDOWN */
+
+.skill-status {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 8px 10px;
+    border: 1px solid #d8c5ee;
+    border-radius: 8px;
+    background-color: #f5f0fc;
+    color: #6941a5;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.skill-status:focus {
+    outline: none;
+    border-color: #8053ba;
+}

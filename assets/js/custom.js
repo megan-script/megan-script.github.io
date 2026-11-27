@@ -121,3 +121,204 @@ results.style.whiteSpace = "pre-line";
 validateForm();
 
 }); 
+
+/* LAB 12 - INTERACTIVE SKILL PROGRESS */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const skills = [
+        { name: "React", status: "Planned", xp: 40 },
+        { name: "SQL", status: "Planned", xp: 45 },
+        { name: "JavaScript", status: "In Progress", xp: 50 },
+        { name: "CSS", status: "In Progress", xp: 60 },
+        { name: "Git & GitHub", status: "In Progress", xp: 55 },
+        { name: "HTML", status: "Completed", xp: 70 },
+        { name: "Python", status: "Completed", xp: 80 }
+    ];
+
+    /* LAB 12 - LOCAL STORAGE */
+
+    function saveSkills() {
+        localStorage.setItem("skillProgress", JSON.stringify(skills));
+    }
+
+    function loadSkills() {
+
+        const savedSkills = localStorage.getItem("skillProgress");
+
+        if (savedSkills) {
+
+            const storedSkills = JSON.parse(savedSkills);
+
+            skills.forEach(function (skill) {
+
+                const savedSkill = storedSkills.find(
+                    item => item.name === skill.name
+                );
+
+                if (savedSkill) {
+                    skill.status = savedSkill.status;
+                }
+
+            });
+        }
+    }
+
+    function renderSkills() {
+
+        const planned = document.getElementById("plannedSkills");
+        const inProgress = document.getElementById("inProgressSkills");
+        const completed = document.getElementById("completedSkills");
+
+        planned.innerHTML = "";
+        inProgress.innerHTML = "";
+        completed.innerHTML = "";
+
+        skills.forEach(function (skill) {
+
+            const card = document.createElement("div");
+            card.className = "skill-card";
+
+            card.innerHTML = `
+              <h4>${skill.name}</h4>
+              <span>${skill.xp} XP</span>
+
+              <select class="skill-status">
+                  <option value="Planned">Planned</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Completed">Completed</option>
+              </select>
+          `;
+
+          const statusSelect = card.querySelector(".skill-status");
+
+          statusSelect.value = skill.status;
+
+          statusSelect.addEventListener("change", function () {
+          skill.status = statusSelect.value;
+          saveSkills();
+          renderSkills();
+          updateXP();
+          updateStatistics();
+      });
+
+            if (skill.status === "Planned") {
+                planned.appendChild(card);
+            } else if (skill.status === "In Progress") {
+                inProgress.appendChild(card);
+            } else {
+                completed.appendChild(card);
+            }
+
+        });
+    }
+
+    function updateXP() {
+
+    const totalXP = skills
+        .filter(skill => skill.status === "Completed")
+        .reduce((sum, skill) => sum + skill.xp, 0);
+
+    let level;
+    let rank;
+
+    if (totalXP >= 300) {
+        level = 4;
+        rank = "Professional";
+    } else if (totalXP >= 150) {
+        level = 3;
+        rank = "Specialist";
+    } else if (totalXP >= 50) {
+        level = 2;
+        rank = "Trainee";
+    } else {
+        level = 1;
+        rank = "Beginner";
+    }
+
+    document.getElementById("totalXP").textContent =
+        totalXP + " XP";
+
+    document.getElementById("currentLevel").textContent =
+        "Level " + level;
+
+    document.getElementById("currentRank").textContent =
+        rank;
+
+    updateProgressBar(totalXP, level);
+}
+
+
+function updateProgressBar(totalXP, level) {
+
+    let progress;
+    let minXP;
+    let nextXP;
+
+    if (level === 4) {
+        progress = 100;
+    } else {
+
+        if (level === 1) {
+            minXP = 0;
+            nextXP = 50;
+        } else if (level === 2) {
+            minXP = 50;
+            nextXP = 150;
+        } else {
+            minXP = 150;
+            nextXP = 300;
+        }
+
+        progress = (totalXP - minXP) /
+                   (nextXP - minXP) * 100;
+    }
+
+    document.getElementById("xpProgressFill").style.width =
+        progress + "%";
+
+    if (level === 4) {
+
+        document.getElementById("xpProgressText").textContent =
+            totalXP + " XP";
+
+        document.getElementById("xpRemaining").textContent =
+            "100% completed - Maximum level reached";
+
+    } else {
+
+        document.getElementById("xpProgressText").textContent =
+            totalXP + " / " + nextXP + " XP";
+
+        document.getElementById("xpRemaining").textContent =
+            progress.toFixed(1) + "% completed - " +
+            (nextXP - totalXP) + " XP remaining";
+    }
+}
+
+
+    function updateStatistics() {
+
+        const total = skills.length;
+
+        const completed = skills.filter(
+            skill => skill.status === "Completed"
+        ).length;
+
+        const percentage = completed / total * 100;
+
+        document.getElementById("totalSkills").textContent =
+            total;
+
+        document.getElementById("completedCount").textContent =
+            completed;
+
+        document.getElementById("completionRate").textContent =
+            percentage.toFixed(1) + "%";
+    }
+    loadSkills();
+    renderSkills();
+    updateXP();
+    updateStatistics();
+
+});
